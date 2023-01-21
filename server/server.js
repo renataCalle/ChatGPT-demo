@@ -5,8 +5,6 @@ import { Configuration, OpenAIApi } from 'openai';
 
 dotenv.config();
 
-console.log(process.env.OPENAI_API_KEY);
-
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -53,4 +51,4 @@ app.post('/', async(req, res) =>{
 
 
 // make sure that the server always listens for new requests
-app.listen(5000, () => console.log('Server is running on port http://localhost:5000'));
+app.listen(5000, () => console.log('Server is running on https://botki.onrender.com'));
