@@ -1,0 +1,9 @@
+Frontend/UI side:
+  npm create vite@latest client --template vanilla
+
+Backend/server side:
+  on root "npm init -y"
+  // cross or requests, secure environment variables, express is backend framework, nodemon keeps application running
+  "npm install cors dotenv express nodemon openai"
+  "npm run server"
+  
