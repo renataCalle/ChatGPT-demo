@@ -37,7 +37,6 @@ app.post('/', async(req, res) =>{
       top_p: 1, //??
       frequency_penalty: 0.5, // 0 means not going to repeat sentences often
       presence_penalty: 0, // ai leaves
-      stop: ["\"\"\""],
     });
 
     res.status(200).send({
@@ -45,7 +44,7 @@ app.post('/', async(req, res) =>{
     })
   } catch (error) {
     console.log(error);
-    res.status(500).send({error});    
+    res.status(500).send(error || 'Something went wrong.');    
   }
 })
 
