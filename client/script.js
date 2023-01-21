@@ -79,7 +79,7 @@ const handleSubmit = async (e) => {
   loader(messageDiv);
 
   // Fetch data from server -> bot's response
-  const response = await fetch('https://botki.onrender.com/',{
+  const response = await fetch('https://botki.onrender.com',{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
