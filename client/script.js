@@ -27,9 +27,12 @@ function typeText(element, text) {
     } else {
       clearInterval(interval);
     }
-  }, 30)
+  }, 20)
 }
 
+// generate unique ID for each message div of bot
+// necessary for typing text effect for that specific reply
+// without unique ID, typing text will work on every element
 function generateUniqueId() {
   const timestamp = Date.now();
   const randomNumber = Math.random();
@@ -68,7 +71,7 @@ const handleSubmit = async (e) => {
 
   // bot's chatstripe
   const uniqueId = generateUniqueId();
-  chatContainer.innerHTML += chatStripe(true, "", uniqueId);
+  chatContainer.innerHTML += chatStripe(true, " ", uniqueId);
 
   // Put new message in view. Scrolls down.
   chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -88,8 +91,10 @@ const handleSubmit = async (e) => {
       prompt: data.get('prompt') // message coming from the textarea element
     })
   })
+
   clearInterval(loadInterval);
-  messageDiv.innerHTML = '';
+  messageDiv.innerHTML = ' ';
+  
   if (response.ok) {
     const data = await response.json(); //gives the response coming from the backend
     const parsedData = data.bot.trim();
